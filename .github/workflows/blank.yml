@@ -1,0 +1,30 @@
+name: milvus-restore
+
+on:
+  # push:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Target environment"
+        required: true
+        default: "dev"
+
+jobs:
+  print-env:
+    # Determine the runner based on the environment input
+    # runs-on: ${{ fromJson('{"dev":"ubuntu-22.04","qa":"ubuntu-20.04"}')}}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Show environment info
+        run: |
+          echo "✅ Running on environment: ${{ inputs.env }}"
+          echo "🏃 Running on runner: ${{ runner.os }}"
+
+      
+
+      - name: Run Python script
+        run: python3 test-env.py
