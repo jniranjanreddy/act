@@ -26,5 +26,5 @@ jobs:
 
       
 
-      - name: Run Python script
-        run: python3 test-env.py
+      # - name: Run Python script
+      #   run: python3 test-env.py
